@@ -17,7 +17,7 @@ var region_layer = L.geoJson(region, {
 });
 
 // GeoJSON region layer for South Africa
-var south_african_Ward_level_4 = L.geoJson(south_african_Ward_level_4, {
+var road_zaf = L.geoJson(road_zaf, {
     style: { color: "purple", weight: 1 },
     onEachFeature: function(f, l) { l.bindPopup("Region: " + f.properties.region); }
 });
@@ -49,7 +49,7 @@ var overlays = {
     "Regions": region_layer,
     "Health Sites": healthsite_layer,
     "Railways": railway_layer,
-    "South African Districts": south_african_Ward_level_4
+    "South African Roads": road_zaf
 };
 
 // Add the Layer Control Panel
