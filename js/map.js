@@ -16,6 +16,12 @@ var region_layer = L.geoJson(region, {
     onEachFeature: function(f, l) { l.bindPopup("Region: " + f.properties.region); }
 });
 
+// GeoJSON region layer for South Africa
+var zaf_admin_4 = L.geoJson(zaf_admin_4, {
+    style: { color: "purple", weight: 1 },
+    onEachFeature: function(f, l) { l.bindPopup("Region: " + f.properties.region); }
+});
+
 var healthsite_layer = L.geoJson(healthfacility, {
     pointToLayer: function(f, latlng) {
         return L.circleMarker(latlng, { radius: 6, fillColor: "green", color: "#000", weight: 1, fillOpacity: 0.8 });
@@ -43,7 +49,7 @@ var overlays = {
     "Regions": region_layer,
     "Health Sites": healthsite_layer,
     "Railways": railway_layer,
-    "Rivers (WMS)": river_wms
+    "South African Districts": zaf_admin_4
 };
 
 // Add the Layer Control Panel
