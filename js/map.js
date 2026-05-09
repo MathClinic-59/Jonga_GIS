@@ -16,11 +16,16 @@ var region_layer = L.geoJson(region, {
     onEachFeature: function(f, l) { l.bindPopup("Region: " + f.properties.region); }
 });
 
-// GeoJSON region layer for South Africa
+// GeoJSON road layer for South Africa
 var road_zaf = L.geoJson(road_zaf, {
-    style: { color: "purple", weight: 1 },
-    onEachFeature: function(f, l) { l.bindPopup("Region: " + f.properties.region); }
+    style: { color: "orange", weight: 2 }
 });
+
+// GeoJSON region layer for South Africa
+//var road_zaf = L.geoJson(road_zaf, {
+   // style: { color: "purple", weight: 1 },
+   // onEachFeature: function(f, l) { l.bindPopup("Region: " + f.properties.region); }
+//});
 
 var healthsite_layer = L.geoJson(healthfacility, {
     pointToLayer: function(f, latlng) {
