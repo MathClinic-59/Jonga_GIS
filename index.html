@@ -17,15 +17,60 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
 
-    <script src="data/16_Regions.js"></script>
-    <script src="data/healthfacilities.js"></script>
-    <script src="data/RailwayLines.js"></script>
-    <script src="data/airports.js"></script>
     <script src="data/zaf_data/road_zaf.js"></script>
-    <script src="data/water_areas_dcw.js"></script>
-    <script src="data/water_lines_dcw.js"></script>
-    <script src="data/zaf_data/zaf_admin.js"></script>
-    <script src="data/zaf_data/water_zaf.js"></script>
+    <script src="data/zaf_data/water_zaf.js"></script>// js/map.js
+
+// Initialize Map
+var map = L.map('map').setView([-33.91799, 25.57007], 7);
+
+// Basemaps
+var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+var googleSat = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    maxZoom: 20, 
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: '&copy; Google Maps'
+});
+
+// --- Fix: Change layer variable names to avoid shadowing the global data variables ---
+// These match the 'var road_zaf = ...' and 'var water_zaf = ...' defined in your uploaded files
+var roadLayer = L.geoJson(road_zaf, {
+    style: { color: "orange", weight: 2 }
+});
+
+var waterLayer = L.geoJson(water_zaf, {
+    style: { color: "blue", weight: 3 }
+});
+
+// Setup Layer Control Objects
+var baseLayers = {
+    "OpenStreetMap": osm,
+    "Satellite": googleSat
+};
+
+var overlays = {
+    "South African Roads": roadLayer,
+    "South African Water Bodies": waterLayer
+};
+
+// Add the Layer Control Panel
+L.control.layers(baseLayers, overlays, {
+    collapsed: true,
+    position: 'topright'
+}).addTo(map);
+
+// Coordinate Tracker
+var coordinateDiv = document.getElementById("coordinate");
+map.on("mousemove", function(e) {
+    if (coordinateDiv) {
+        coordinateDiv.innerHTML = `Lat: ${e.latlng.lat.toFixed(4)} | Lng: ${e.latlng.lng.toFixed(4)}`;
+    }
+});
+
+// Add Scale
+L.control.scale().addTo(map);
     
     <script src="js/map.js"></script>
 </body>
