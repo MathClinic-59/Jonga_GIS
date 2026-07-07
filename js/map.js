@@ -21,6 +21,12 @@ var road_zaf = L.geoJson(road_zaf, {
     style: { color: "orange", weight: 2 }
 });
 
+ // Add water_areas GEOJSON layer
+var water_zaf = L.geoJson(water_zaf, {
+    style:{ color: "blue", weight: 3},
+
+});
+
 // GeoJSON region layer for South Africa
 //var road_zaf = L.geoJson(road_zaf, {
    // style: { color: "purple", weight: 1 },
@@ -54,7 +60,8 @@ var overlays = {
     "Regions": region_layer,
     "Health Sites": healthsite_layer,
     "Railways": railway_layer,
-    "South African Roads": road_zaf
+    "South African Roads": road_zaf,
+    "South African Water Bodies": water_zaf
 };
 
 // Add the Layer Control Panel
