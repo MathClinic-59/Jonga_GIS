@@ -10,12 +10,6 @@ var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
     maxZoom: 20, subdomains:['mt0','mt1','mt2','mt3']
 });
 
-// GeoJSON Layers (Not added to map immediately)
-var region_layer = L.geoJson(region, {
-    style: { color: "red", weight: 1 },
-    onEachFeature: function(f, l) { l.bindPopup("Region: " + f.properties.region); }
-});
-
 // GeoJSON road layer for South Africa
 var road_zaf = L.geoJson(road_zaf, {
     style: { color: "orange", weight: 2 }
@@ -25,18 +19,6 @@ var road_zaf = L.geoJson(road_zaf, {
 var water_zaf = L.geoJson(water_zaf, {
     style:{ color: "blue", weight: 3},
 
-});
-
-// GeoJSON region layer for South Africa
-//var road_zaf = L.geoJson(road_zaf, {
-   // style: { color: "purple", weight: 1 },
-   // onEachFeature: function(f, l) { l.bindPopup("Region: " + f.properties.region); }
-//});
-
-var healthsite_layer = L.geoJson(healthfacility, {
-    pointToLayer: function(f, latlng) {
-        return L.circleMarker(latlng, { radius: 6, fillColor: "green", color: "#000", weight: 1, fillOpacity: 0.8 });
-    }
 });
 
 var railway_layer = L.geoJson(railway, {
@@ -57,9 +39,6 @@ var baseLayers = {
 };
 
 var overlays = {
-    "Regions": region_layer,
-    "Health Sites": healthsite_layer,
-    "Railways": railway_layer,
     "South African Roads": road_zaf,
     "South African Water Bodies": water_zaf
 };
