@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jonga GIS</title>
     
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <link rel="stylesheet" type="text/css" href="css/map.css">
 </head>
 <body>
 
     <div id="map"></div>
-    <div id="coordinate"></div>
+    <div id="coordinate">Lat: 0.0000 | Lng: 0.0000</div>
 
-    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" crossorigin=""></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.js" crossorigin="anonymous"></script>
-    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
 
     <script src="data/16_Regions.js"></script>
     <script src="data/healthfacilities.js"></script>
@@ -24,10 +24,9 @@
     <script src="data/zaf_data/road_zaf.js"></script>
     <script src="data/water_areas_dcw.js"></script>
     <script src="data/water_lines_dcw.js"></script>
-    <script src="data/SOU_boundaries.json"></script>
     <script src="data/zaf_data/zaf_admin.js"></script>
     <script src="data/zaf_data/water_zaf.js"></script>
-
+    
     <script src="js/map.js"></script>
 </body>
 </html>
